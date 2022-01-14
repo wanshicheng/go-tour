@@ -5,11 +5,28 @@ testing是Go的标准包，为Go提供自动测试支持。它旨在与“go tes
 
 # 单元测试
 1. 代码文件名必须以“_test.go”结尾。
-2. 测试函数必须以“Test”开头，并且紧接着的字母不能是小写的。
+2. 测试函数必须以“Test”或者“Example”开头，并且紧接着的字母不能是小写的。
 
 # 压力测试
+1. 代码文件名必须以“_test.go”结尾。
+2. 测试函数必须以“Benchmark”开头，并且紧接着的字母不能是小写的。
 
+```bash
+go test -bench .
+```
 
+执行结果：
+
+```
+goos: linux
+goarch: amd64
+pkg: github.com/CodingTour/go-tour/examples/testing
+cpu: 11th Gen Intel(R) Core(TM) i5-1130G7 @ 1.10GHz
+BenchmarkFib-8                 6         192443297 ns/op
+BenchmarkFastFib-8      64306544                16.24 ns/op
+PASS
+ok      github.com/CodingTour/go-tour/examples/testing  2.426s
+```
 
 # 参考资料
 [testing package](https://pkg.go.dev/testing)
